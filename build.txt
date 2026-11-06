@@ -1,1 +1,1 @@
-UI overhaul + map scroll + nav icon fix, 2026-11-06
+Popups inside the dashed line, 2026-11-06
