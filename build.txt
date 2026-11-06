@@ -1,1 +1,1 @@
-UI overhaul (Quest map, nav, blue), 2026-11-06
+UI overhaul + map scroll + nav icon fix, 2026-11-06
