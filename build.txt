@@ -1,1 +1,1 @@
-S16 safe areas, 2026-11-06
+UI overhaul (Quest map, nav, blue), 2026-11-06
