@@ -1,1 +1,1 @@
-Magnific idle loops (chest + piggy), main 54cf72a, 2026-11-07
+Magnific idle loops on all 8 home badges, main 965d816, 2026-11-07
