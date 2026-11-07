@@ -1,1 +1,1 @@
-A3 chest restored, main 20501ab, 2026-11-07
+Magnific idle loops (chest + piggy), main 54cf72a, 2026-11-07
