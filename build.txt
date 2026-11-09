@@ -1,1 +1,1 @@
-source c91cd64 (reference-matched opener), 2026-11-09
+source 0dc9e6c (animated Sort Corner opener), 2026-11-09
