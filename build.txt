@@ -1,1 +1,1 @@
-source a44ff0df8db44097fc53019f72abca2c0f9b4e57 (accelerating opener), 2026-11-09T21:13:20.374494+00:00
+source a10541f32a71423cc3984acf69c958a0710e1ab9 (full reference opener), 2026-11-09T21:38:13.881920+00:00
