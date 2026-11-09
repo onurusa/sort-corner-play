@@ -93,13 +93,8 @@ body {
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 
-	
-<style>
-#sort-corner-opener { position:fixed; inset:0; z-index:2147483647; width:100%; height:100vh; height:100dvh; object-fit:contain; background:#22407e; opacity:1; transition:opacity .24s ease; }
-#sort-corner-opener.is-done { opacity:0; pointer-events:none; }
-</style>
-</head>
-	<body><video id="sort-corner-opener" autoplay muted playsinline preload="auto" poster="sort-corner-opener-poster.jpg" aria-hidden="true"><source src="sort-corner-opener.mp4" type="video/mp4"></video>
+	</head>
+	<body>
 		<canvas id="canvas">
 			Your browser does not support the canvas tag.
 		</canvas>
@@ -116,7 +111,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":32767664,"index.wasm":43699190},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":30972944,"index.wasm":43699190},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -220,23 +215,6 @@ const engine = new Engine(GODOT_CONFIG);
 	}
 }());
 		</script>
-	
-<script>
-(() => {
-  const video = document.getElementById("sort-corner-opener");
-  let gameReady = false;
-  let introEnded = false;
-  const close = () => {
-    if (!gameReady || !introEnded) return;
-    video.classList.add("is-done");
-    setTimeout(() => video.remove(), 260);
-  };
-  window.sortCornerGameReady = () => { gameReady = true; close(); };
-  video.addEventListener("ended", () => { introEnded = true; video.pause(); close(); });
-  video.addEventListener("error", () => video.remove(), { once: true });
-  video.play().catch(() => video.remove());
-})();
-</script>
-</body>
+	</body>
 </html>
 
