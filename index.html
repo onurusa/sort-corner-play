@@ -93,13 +93,144 @@ body {
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 
-	
-<style>
-#sort-corner-opener { position:fixed; inset:0; z-index:2147483647; width:100%; height:100vh; height:100dvh; object-fit:contain; background:#22407e; opacity:1; transition:opacity .24s ease; }
-#sort-corner-opener.is-done { opacity:0; pointer-events:none; }
-</style>
+	<link rel="preload" href="sort-corner-font.woff2" as="font" type="font/woff2" crossorigin>
 </head>
-	<body><video id="sort-corner-opener" autoplay muted playsinline preload="auto" poster="sort-corner-opener-poster.jpg" aria-hidden="true"><source src="sort-corner-opener.mp4" type="video/mp4"></video>
+	<body><style id="sort-corner-opener-style">
+  @font-face {
+    font-family: "Sort Corner Lilita";
+    src: url("sort-corner-font.woff2") format("woff2");
+    font-display: swap;
+  }
+  #sort-corner-opener {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: #43afe1;
+    pointer-events: none;
+  }
+  #sort-corner-opener svg { display: block; width: 100%; height: 100%; }
+  #sort-corner-opener .door-panel {
+    transition: transform 1.55s cubic-bezier(.22,.78,.19,1);
+    will-change: transform;
+  }
+  #sort-corner-opener.is-opening .door-left { transform: translateX(-132px); }
+  #sort-corner-opener.is-opening .door-right { transform: translateX(132px); }
+  #sort-corner-opener .brand-logo {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 1.2s cubic-bezier(.25,.82,.22,1), opacity .82s ease .28s;
+  }
+  #sort-corner-opener.is-opening .brand-logo {
+    transform: translateY(-185px);
+    opacity: 0;
+  }
+  #sort-corner-opener .loading-mark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sort-corner-load-bob 1.1s ease-in-out infinite;
+    transition: opacity .28s ease .38s;
+  }
+  #sort-corner-opener.is-opening .loading-mark { opacity: 0; }
+  @keyframes sort-corner-load-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #sort-corner-opener *, #sort-corner-opener *::before, #sort-corner-opener *::after {
+      animation-duration: .01ms !important;
+      transition-duration: .01ms !important;
+    }
+  }
+</style>
+<div id="sort-corner-opener" role="status" aria-label="Sort Corner loading">
+  <svg viewBox="0 0 540 960" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="sc-sky" x2="0" y2="1">
+        <stop stop-color="#58c1f1"/><stop offset="1" stop-color="#38a8dc"/>
+      </linearGradient>
+      <linearGradient id="sc-blue-awning" x2="0" y2="1">
+        <stop stop-color="#2d83e6"/><stop offset=".54" stop-color="#1767d1"/><stop offset="1" stop-color="#0b55b8"/>
+      </linearGradient>
+      <linearGradient id="sc-white-awning" x2="0" y2="1">
+        <stop stop-color="#fff"/><stop offset=".66" stop-color="#e8efff"/><stop offset="1" stop-color="#cad8f7"/>
+      </linearGradient>
+      <linearGradient id="sc-glass" x2="1" y2="1">
+        <stop stop-color="#e8f9ff" stop-opacity=".88"/><stop offset=".5" stop-color="#c5edfc" stop-opacity=".76"/><stop offset="1" stop-color="#f4fcff" stop-opacity=".9"/>
+      </linearGradient>
+      <linearGradient id="sc-metal" x2="1">
+        <stop stop-color="#8bc9df"/><stop offset=".28" stop-color="#f8fdff"/><stop offset=".63" stop-color="#bedbe8"/><stop offset="1" stop-color="#fff"/>
+      </linearGradient>
+      <filter id="sc-awning-shadow" x="-20%" y="-20%" width="140%" height="160%">
+        <feGaussianBlur stdDeviation="10"/>
+      </filter>
+      <filter id="sc-logo-shadow" x="-20%" y="-20%" width="140%" height="150%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+        <feOffset dy="10" result="offset"/>
+        <feComponentTransfer><feFuncA type="linear" slope=".32"/></feComponentTransfer>
+        <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <!-- Bright blue storefront wall with the striped canopy from the reference. -->
+    <rect width="540" height="960" fill="url(#sc-sky)"/>
+    <path d="M0 214H540V960H0Z" fill="#45afe0"/>
+    <path d="M0 228H540" stroke="#9ee2ff" stroke-opacity=".58" stroke-width="7"/>
+    <path d="M0 243H540" stroke="#1674bd" stroke-opacity=".25" stroke-width="9"/>
+    <path d="M22 676L199 420M364 796L540 542M0 862L190 589" stroke="#c8f1ff" stroke-opacity=".15" stroke-width="10"/>
+    <path d="M0 230H540V264H0Z" fill="#0c4b9b" opacity=".34" filter="url(#sc-awning-shadow)"/>
+
+    <!-- Alternating blue and white awning panels with rounded scallops. -->
+    <g filter="url(#sc-awning-shadow)" opacity=".55" fill="#083f79">
+      <path d="M-64 18H65V178A64.5 64.5 0 0 1 -64 178Z" transform="translate(0 19)"/>
+      <path d="M65 18H194V178A64.5 64.5 0 0 1 65 178Z" transform="translate(0 19)"/>
+      <path d="M194 18H323V178A64.5 64.5 0 0 1 194 178Z" transform="translate(0 19)"/>
+      <path d="M323 18H452V178A64.5 64.5 0 0 1 323 178Z" transform="translate(0 19)"/>
+      <path d="M452 18H581V178A64.5 64.5 0 0 1 452 178Z" transform="translate(0 19)"/>
+    </g>
+    <path d="M-64 8H581V44H-64Z" fill="#d5eaff"/>
+    <path d="M-64 8H65V178A64.5 64.5 0 0 1 -64 178Z" fill="url(#sc-blue-awning)"/>
+    <path d="M65 8H194V178A64.5 64.5 0 0 1 65 178Z" fill="url(#sc-white-awning)"/>
+    <path d="M194 8H323V178A64.5 64.5 0 0 1 194 178Z" fill="url(#sc-blue-awning)"/>
+    <path d="M323 8H452V178A64.5 64.5 0 0 1 323 178Z" fill="url(#sc-white-awning)"/>
+    <path d="M452 8H581V178A64.5 64.5 0 0 1 452 178Z" fill="url(#sc-blue-awning)"/>
+    <path d="M74 18V165M332 18V165" stroke="#fff" stroke-opacity=".35" stroke-width="8"/>
+    <path d="M-64 8H581" stroke="#fff" stroke-opacity=".66" stroke-width="8"/>
+
+    <!-- Tall center shop doorway, closed over the loading screen. -->
+    <path d="M205 203V960M335 203V960" stroke="#1768ad" stroke-opacity=".64" stroke-width="19"/>
+    <path d="M211 203V960M329 203V960" stroke="url(#sc-metal)" stroke-width="11"/>
+    <path d="M224 204V960M316 204V960" stroke="#f8feff" stroke-opacity=".76" stroke-width="4"/>
+    <g class="door-panel door-left">
+      <path d="M218 212H270V960H218Z" fill="url(#sc-glass)" stroke="#c5e3f0" stroke-width="3"/>
+      <path d="M226 224V960M235 224V960" stroke="#fff" stroke-opacity=".5" stroke-width="4"/>
+      <path d="M218 215H270" stroke="#fff" stroke-opacity=".86" stroke-width="5"/>
+      <rect x="252" y="484" width="7" height="54" rx="3.5" fill="#fff" stroke="#79a7bf" stroke-width="2"/>
+    </g>
+    <g class="door-panel door-right">
+      <path d="M270 212H322V960H270Z" fill="url(#sc-glass)" stroke="#c5e3f0" stroke-width="3"/>
+      <path d="M305 224V960M314 224V960" stroke="#fff" stroke-opacity=".5" stroke-width="4"/>
+      <path d="M270 215H322" stroke="#fff" stroke-opacity=".86" stroke-width="5"/>
+      <rect x="281" y="484" width="7" height="54" rx="3.5" fill="#fff" stroke="#79a7bf" stroke-width="2"/>
+    </g>
+    <path d="M269 203V960" stroke="#0d4c88" stroke-opacity=".6" stroke-width="4"/>
+
+    <!-- Sort Corner version of the bright, stacked GOODS MASTER mark. -->
+    <image class="brand-logo" href="sort-corner-logo.svg" x="-10" y="250" width="560" height="195" preserveAspectRatio="none" filter="url(#sc-logo-shadow)"/>
+
+    <!-- The reference uses a small happy-face icon beside Loading... -->
+    <g class="loading-mark" transform="translate(22 0)">
+      <circle cx="173" cy="717" r="17" fill="#ffca30" stroke="#a55b14" stroke-width="3"/>
+      <circle cx="167" cy="712" r="2.2" fill="#493b20"/>
+      <circle cx="179" cy="712" r="2.2" fill="#493b20"/>
+      <path d="M166 720Q173 728 180 720" fill="none" stroke="#493b20" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="197" y="727" fill="#fff7e8" stroke="#153b70" stroke-width="6" stroke-linejoin="round" paint-order="stroke" font-family="Sort Corner Lilita,Arial Rounded MT Bold,sans-serif" font-size="32" letter-spacing="-.4">Loading...</text>
+    </g>
+  </svg>
+</div>
+
 		<canvas id="canvas">
 			Your browser does not support the canvas tag.
 		</canvas>
@@ -116,7 +247,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":32767664,"index.wasm":43699190},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":31057792,"index.wasm":43699190},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -223,18 +354,17 @@ const engine = new Engine(GODOT_CONFIG);
 	
 <script>
 (() => {
-  const video = document.getElementById("sort-corner-opener");
-  let gameReady = false;
-  let introEnded = false;
-  const close = () => {
-    if (!gameReady || !introEnded) return;
-    video.classList.add("is-done");
-    setTimeout(() => video.remove(), 260);
+  const opener = document.getElementById("sort-corner-opener");
+  if (!opener) return;
+  let opening = false;
+  window.sortCornerGameReady = () => {
+    if (opening) return;
+    opening = true;
+    opener.classList.add("is-opening");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.setTimeout(() => opener.remove(), reduced ? 80 : 1700);
   };
-  window.sortCornerGameReady = () => { gameReady = true; close(); };
-  video.addEventListener("ended", () => { introEnded = true; video.pause(); close(); });
-  video.addEventListener("error", () => video.remove(), { once: true });
-  video.play().catch(() => video.remove());
+  window.sortCornerGameError = () => opener.remove();
 })();
 </script>
 </body>
