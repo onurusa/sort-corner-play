@@ -1,3 +1,3 @@
-Source: onurusa/sort-corner
-Commit: 9b7d791e12b7c0664953d16952e316141c760795
-Change: Literal Excellent and Perfect match lettering
+Source: onurusa/sort-corner PR 148
+Build: 26e3c4cb73d6
+Praise: Good green, Great blue, Amazing orange, Excellent purple, Perfect red
