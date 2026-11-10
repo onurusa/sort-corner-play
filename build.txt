@@ -1,3 +1,3 @@
-Source: onurusa/sort-corner PR 149
-Build: dea2bd59c846
-SOLD OUT: paper roll-up when refilled
+Source: onurusa/sort-corner PR 150
+Build: d8a8d422a03d
+SOLD OUT: full paper roll, hold, then disappear
