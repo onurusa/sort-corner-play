@@ -1,1 +1,1 @@
-source bb4fa85d2194e189b86b6f046b80c1ee921765a0 (Reference triple-match reward sequence), 2026-11-10T10:13:31.035965+00:00
+source cd8c243c8d77fb45968eb6bf8a90729144524c4f (Sample match visuals and recorded star trajectory), 2026-11-10T10:42:26.602859+00:00
