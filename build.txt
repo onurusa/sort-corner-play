@@ -1,5 +1,5 @@
 Sort Corner
-Source: e887e018b959a4ffedb4e65c126d1b2641107a82
-Streak: clean full-resolution plate, soft ray mask, no old ray patches.
-Hammer: 45 degrees clockwise. Wand: 45 degrees counterclockwise.
-Smooth independent light and star animation. 259 tests passed.
+Source: 4ddc55ad6ab4d5fbf1a1a8d3e54057a86b0d97a4
+Streak: true transparent tool cutouts; no blurred ray masks or icon frames.
+Approved rotations preserved. Smooth rays and independent star twinkles.
+260 tests passed.
