@@ -1,1 +1,1 @@
-source 2a75d544fd7cbb0e3fddb7be8ef79fa93b5c32e4 (Quest: glossy 3D ribbon with bevels and folded ends), 2026-11-10T09:49:26.993636+00:00
+source bb4fa85d2194e189b86b6f046b80c1ee921765a0 (Reference triple-match reward sequence), 2026-11-10T10:13:31.035965+00:00
