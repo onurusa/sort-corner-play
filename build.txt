@@ -1,1 +1,1 @@
-source aa5fd76e088b15522aa2e0a2829445e13e006127 (Quest: seamless continuous star/glow loops), 2026-11-10T02:44:50.348284+00:00
+source 59ac2ebf92b6d6292c6b8f10cb1fb8b7c576d636 (Quest: rounded photos, solid ribbon, stronger glow, no card sparkles), 2026-11-10T03:06:51.165152+00:00
