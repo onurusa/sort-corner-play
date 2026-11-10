@@ -1,1 +1,1 @@
-source e9a3cc55d06fec80493f36c0f7891eb63f005ed6 (Quest: current game images, our gold lock, original nav/background), 2026-11-10T02:09:10.252224+00:00
+source aa5fd76e088b15522aa2e0a2829445e13e006127 (Quest: seamless continuous star/glow loops), 2026-11-10T02:44:50.348284+00:00
