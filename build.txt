@@ -1,1 +1,1 @@
-source 59ac2ebf92b6d6292c6b8f10cb1fb8b7c576d636 (Quest: rounded photos, solid ribbon, stronger glow, no card sparkles), 2026-11-10T03:06:51.165152+00:00
+source 2a75d544fd7cbb0e3fddb7be8ef79fa93b5c32e4 (Quest: glossy 3D ribbon with bevels and folded ends), 2026-11-10T09:49:26.993636+00:00
