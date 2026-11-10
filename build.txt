@@ -1,5 +1,3 @@
-Sort Corner
-Source: 4ddc55ad6ab4d5fbf1a1a8d3e54057a86b0d97a4
-Streak: true transparent tool cutouts; no blurred ray masks or icon frames.
-Approved rotations preserved. Smooth rays and independent star twinkles.
-260 tests passed.
+Source: onurusa/sort-corner 12b5510b3d39f643a9f78e315810b5c7720fef6d (PR 162, merged)
+Build: index.f11f01d2f544.pck
+Change: Correct chest corner fittings, clean silhouette edges, slower smoother rays and twinkles
