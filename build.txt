@@ -1,3 +1,3 @@
-Source: onurusa/sort-corner a6cb330824ca74d1b2a6651b1ca6c9f3225aa145 (PR 157, merged)
-Build: index.dceb919f14cb.pck
-Change: Purple Star Chest with independent twinkles and rotating spinner reward rays
+Source: onurusa/sort-corner 14a29692c595d59be5204caf919eb324225f599b (PR 158, merged)
+Build: index.98f3c38f2c1e.pck
+Change: Preserve original purple floor, contact shadows and clouds; rotate rays behind the gold
