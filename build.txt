@@ -1,3 +1,3 @@
-Source: onurusa/sort-corner PR 151
-Build: 38ae4b5e3b2b
-SOLD OUT: faster roll, immediate pop and disappear
+Source: onurusa/sort-corner 0376c0ac9dcec8ede9b6d8ee619d55ff8529d674 (PR 152)
+Build: index.9cc1f140c80d.pck
+Change: Only one praise effect across the screen, including magic/shuffle and rapid clears
