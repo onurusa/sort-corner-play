@@ -1,3 +1,5 @@
-Source: onurusa/sort-corner 14a29692c595d59be5204caf919eb324225f599b (PR 158, merged)
-Build: index.98f3c38f2c1e.pck
-Change: Preserve original purple floor, contact shadows and clouds; rotate rays behind the gold
+Sort Corner
+Source: 35a32fe28b5f65128e16573b861b7905c30690e1
+Win Streak: approved artwork, straight centered hammer, centered wand.
+Smooth masked rays and staggered independent star twinkles.
+259 tests passed.
