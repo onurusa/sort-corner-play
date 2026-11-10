@@ -1,5 +1,5 @@
 Sort Corner
-Source: 35a32fe28b5f65128e16573b861b7905c30690e1
-Win Streak: approved artwork, straight centered hammer, centered wand.
-Smooth masked rays and staggered independent star twinkles.
-259 tests passed.
+Source: e887e018b959a4ffedb4e65c126d1b2641107a82
+Streak: clean full-resolution plate, soft ray mask, no old ray patches.
+Hammer: 45 degrees clockwise. Wand: 45 degrees counterclockwise.
+Smooth independent light and star animation. 259 tests passed.
