@@ -1,3 +1,3 @@
-Source: 4261c86
-Audit fixes AU1 to AU5: logic gaps, economy, smoother level curve (levels 5-10, 14, 22-30 re-rolled).
-274 tests passed; pack-only export on the published 4.4.1 web runtime.
+Source: ebee621
+Audit AU6: the wand clears up to two eligible kinds, one if only one has 3 reachable.
+275 tests passed; exported for Godot 4.4.1 Web.
