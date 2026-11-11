@@ -1,3 +1,3 @@
-Source: 434c9a8
-Shelf chains touch all four corners and shake with anticipation and soft settling.
-265 tests passed; portrait/tall Web motion frames checked.
+Source: 1e7ca9e
+Recorded hanging lock motion; stationary chains and badge; chain ends recessed behind wood.
+265 tests passed; full-loop and portrait/tall Web renders checked.
