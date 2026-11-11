@@ -1,3 +1,3 @@
-Source: 1e7ca9e
-Recorded hanging lock motion; stationary chains and badge; chain ends recessed behind wood.
-265 tests passed; full-loop and portrait/tall Web renders checked.
+Source: bd0d58f
+Number circle, lock and inner chains move together at 80% speed; buried corners stay fixed.
+265 tests passed; overlap and phone motion poses checked.
