@@ -1,3 +1,3 @@
-Source: 2d9cc1f
-Approved linked lock animation slowed by 80 percent: 25-second loop.
-265 tests passed; same motion keys and attachment geometry.
+Source: 4261c86
+Audit fixes AU1 to AU5: logic gaps, economy, smoother level curve (levels 5-10, 14, 22-30 re-rolled).
+274 tests passed; pack-only export on the published 4.4.1 web runtime.
