@@ -1,3 +1,3 @@
-Source: onurusa/sort-corner 12b5510b3d39f643a9f78e315810b5c7720fef6d (PR 162, merged)
-Build: index.f11f01d2f544.pck
-Change: Correct chest corner fittings, clean silhouette edges, slower smoother rays and twinkles
+Source: onurusa/sort-corner ae20792 (PR 163, merged)
+Build: index.4a1c535844d0.pck
+Change: Synchronize match effects, praise, combo accents, landing/clear sounds and final win rewards
