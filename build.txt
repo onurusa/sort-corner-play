@@ -1,3 +1,0 @@
-Source: ebee621
-Audit AU6: the wand clears up to two eligible kinds, one if only one has 3 reachable.
-275 tests passed; exported for Godot 4.4.1 Web.
