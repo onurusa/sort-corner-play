@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<title>Sort Corner</title>
+<style>
+html, body, #canvas { margin: 0; padding: 0; border: 0; }
+body { background: #58b6e7; color: white; overflow: hidden; touch-action: none; }
+#canvas { display: block; outline: none; }
+#status { position: fixed; inset: 0; background: #58b6e7; z-index: 100; }
+#status-splash { width: 100%; height: 100%; object-fit: contain; }
+#status-splash.show-image--false { display: none; }
+#download { position: absolute; bottom: max(6%, env(safe-area-inset-bottom)); left: 14%; right: 14%; padding: 16px;
+  border-radius: 18px; background: #183478ed; text-align: center; font: 600 17px/1.4 system-ui, sans-serif; }
+#status-progress { display: block; width: 100%; height: 14px; margin: 12px auto; accent-color: #8ce145; }
+#status-notice { margin: 8px 0; font-size: 15px; }
+#retry { border: 2px solid #b9f779; border-radius: 22px; background: #65b827; color: white;
+  font: inherit; min-height: 46px; padding: 8px 28px; margin-top: 8px; cursor: pointer; }
+[hidden] { display: none !important; }
+</style>
+<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+
+</head>
+<body>
+<canvas id="canvas">Your browser does not support the game canvas.</canvas>
+<div id="status">
+  <img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="Sort Corner">
+  <div id="download" role="status" aria-live="polite">
+    <div id="status-label">Loading game…</div>
+    <progress id="status-progress" aria-label="Game download"></progress>
+    <div id="status-notice" hidden></div>
+    <button id="retry" hidden>Try again</button>
+  </div>
+</div>
+<noscript>JavaScript needs to be enabled to play Sort Corner.</noscript>
+<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"engine.205b017ab813","experimentalVK":false,"fileSizes":{"engine.205b017ab813.wasm":43699190,"index.27a12f7cb5e9.pck":17187936},"focusCanvas":true,"gdextensionLibs":[],"mainPack":"index.27a12f7cb5e9.pck"};
+const GODOT_THREADS_ENABLED = false;
+const ENGINE_URL = "engine.205b017ab813.js";
+(function () {
+  const overlay = document.getElementById('status');
+  const label = document.getElementById('status-label');
+  const progress = document.getElementById('status-progress');
+  const notice = document.getElementById('status-notice');
+  const retry = document.getElementById('retry');
+  let finished = false;
+  let lastProgress = Date.now();
+  let lastBytes = 0;
+  retry.onclick = function () {
+    const url = new URL(location.href);
+    url.searchParams.set('reload', Date.now().toString());
+    location.replace(url.href);
+  };
+  function showRetry(message) {
+    notice.textContent = message;
+    notice.hidden = false;
+    retry.hidden = false;
+  }
+  const watchdog = setInterval(function () {
+    if (!finished && Date.now() - lastProgress > 30000) {
+      showRetry('Loading is taking longer than usual. You can try again.');
+    }
+  }, 1000);
+  function fail(error) {
+    if (finished) return;
+    finished = true;
+    clearInterval(watchdog);
+    console.error('Game startup failed:', error);
+    label.textContent = 'Couldn’t load the game';
+    progress.hidden = true;
+    overlay.querySelector('[role="status"]').setAttribute('role', 'alert');
+    showRetry('Check your connection and tap Try again.');
+  }
+  function onProgress(current, total) {
+    if (finished) return;
+    if (current > lastBytes) {
+      lastBytes = current;
+      lastProgress = Date.now();
+      notice.hidden = true;
+      retry.hidden = true;
+    }
+    if (current > 0 && total > 0) {
+      progress.max = total;
+      progress.value = current;
+      const percent = Math.min(100, Math.floor(current * 100 / total));
+      label.textContent = percent === 100 ? 'Starting game…' : 'Loading game… ' + percent + '%';
+    } else {
+      progress.removeAttribute('value');
+    }
+  }
+  // Attach failure handlers BEFORE requesting the engine. A failed script used
+  // to throw "Engine is not defined" while the default overlay stayed hidden.
+  const script = document.createElement('script');
+  script.src = ENGINE_URL;
+  script.onerror = function () { fail(new Error('Engine download failed')); };
+  script.onload = async function () {
+    try {
+      if (typeof Engine === 'undefined') throw new Error('Engine did not initialize');
+      const missing = Engine.getMissingFeatures({ threads: GODOT_THREADS_ENABLED });
+      if (missing.length) {
+        fail(new Error(missing.join(', ')));
+        notice.textContent = 'This browser couldn’t start the game. Try opening it in Safari or Chrome.';
+        return;
+      }
+      const engine = new Engine(GODOT_CONFIG);
+      await engine.startGame({ onProgress: onProgress });
+      finished = true;
+      clearInterval(watchdog);
+      overlay.remove();
+    } catch (error) { fail(error); }
+  };
+  document.head.appendChild(script);
+}());
+</script>
+</body>
+</html>
+
