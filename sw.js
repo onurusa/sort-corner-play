@@ -1,5 +1,5 @@
 const CACHE = 'sort-corner';
-const BUILD = ["./", "index.html", "play.047ca18482a9.html", "index.52df6996a274.pck", "engine.205b017ab813.js", "engine.205b017ab813.wasm", "engine.205b017ab813.audio.worklet.js", "engine.205b017ab813.audio.position.worklet.js"];
+const BUILD = ["./", "index.html", "play.41a53a27e902.html", "index.640470ce0665.pck", "engine.205b017ab813.js", "engine.205b017ab813.wasm", "engine.205b017ab813.audio.worklet.js", "engine.205b017ab813.audio.position.worklet.js"];
 self.addEventListener('install', (e) => {
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(BUILD)));
